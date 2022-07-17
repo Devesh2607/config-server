@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      pool-name: OrderServicePool
+      max-lifetime: 2000000
+      auto-commit: false
+      connection-timeout: 30000
+      connection-test-query: SELECT 1 FROM DUAL
+
+  jpa:
+    properties:
+      hibernate:
+        types.print.banner: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
